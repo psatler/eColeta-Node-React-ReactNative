@@ -24,6 +24,8 @@ For the maps, it was used the [Leaflet js](https://leafletjs.com/) library along
 2. Go to React Leaft to follow one of [its examples](https://react-leaflet.js.org/docs/en/examples)
 
 
+To get the cities and states, the API from [IBGE](https://servicodados.ibge.gov.br/api/docs/localidades?versao=1) was used.
+
 ### Dependencies
 
 - [React Icons]()
