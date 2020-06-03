@@ -32,7 +32,17 @@ const CreatePoint: React.FC = () => {
   const [cities, setCities] = useState<string[]>([]);
   const [selectedCity, setSelectedCity] = useState('0');
   
-  const [selectedMapPosition, setSelectedMapPosition] = useState<[number, number]>([0, 0])
+  const [initialMapPosition, setInitialMapPosition] = useState<[number, number]>([0, 0]);
+  const [selectedMapPosition, setSelectedMapPosition] = useState<[number, number]>([0, 0]);
+
+  useEffect(
+    function loadInitialCoordinatesOnMap() {
+      navigator.geolocation.getCurrentPosition(position => {
+        const { latitude, longitude } = position.coords;
+        setInitialMapPosition([latitude, longitude])
+      })
+    }
+  , [])
 
   useEffect(
     function loadItemsOnComponentMount() {
@@ -139,7 +149,8 @@ const CreatePoint: React.FC = () => {
           </legend>
 
           <Map
-            center={[-20.289852, -40.2906825]} 
+            // center={[-20.289852, -40.2906825]}
+            center={initialMapPosition}
             zoom={15}
             onclick={handleMapClick}
           >

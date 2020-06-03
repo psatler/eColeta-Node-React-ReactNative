@@ -23,8 +23,9 @@ For the maps, it was used the [Leaflet js](https://leafletjs.com/) library along
 1. Go to [leaflet quickstart](https://leafletjs.com/examples/quick-start/) and copy the import of CSS
 2. Go to React Leaft to follow one of [its examples](https://react-leaflet.js.org/docs/en/examples)
 
+We're also getting the user's initial position on load. This requires that the user grants its location permission.
 
-To get the cities and states, the API from [IBGE](https://servicodados.ibge.gov.br/api/docs/localidades?versao=1) was used.
+To get the cities and states, the API from [IBGE](https://servicodados.ibge.gov.br/api/docs/localidades?versao=1) was used. 
 
 ### Dependencies
 
