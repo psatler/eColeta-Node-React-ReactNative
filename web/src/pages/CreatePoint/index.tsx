@@ -31,6 +31,11 @@ const CreatePoint: React.FC = () => {
   const [selectedUf, setSelectedUf] = useState('0');
   const [cities, setCities] = useState<string[]>([]);
   const [selectedCity, setSelectedCity] = useState('0');
+  const [formInputs, setFormInputs] = useState({
+    name: '',
+    email: '',
+    whatsapp: '',
+  })
   
   const [initialMapPosition, setInitialMapPosition] = useState<[number, number]>([0, 0]);
   const [selectedMapPosition, setSelectedMapPosition] = useState<[number, number]>([0, 0]);
@@ -94,6 +99,12 @@ const CreatePoint: React.FC = () => {
     setSelectedMapPosition([latitude, longitude]);
   }, [])
 
+  const handleInputChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+
+    setFormInputs({...formInputs, [name]: value })
+  }, [])
+
   return (
     <div id="page-create-point">
       <header>
@@ -118,7 +129,8 @@ const CreatePoint: React.FC = () => {
             <input 
               type="text"
               name="name"
-              id="name"  
+              id="name"
+              onChange={handleInputChange}
             />
           </div>
 
@@ -128,7 +140,8 @@ const CreatePoint: React.FC = () => {
               <input 
                 type="email"
                 name="email"
-                id="email"  
+                id="email"
+                onChange={handleInputChange}
               />
             </div>
             <div className="field">
@@ -136,7 +149,8 @@ const CreatePoint: React.FC = () => {
               <input 
                 type="text"
                 name="whatsapp"
-                id="whatsapp"  
+                id="whatsapp"
+                onChange={handleInputChange}
               />
             </div>
           </div>
