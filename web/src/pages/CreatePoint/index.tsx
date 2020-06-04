@@ -35,7 +35,8 @@ const CreatePoint: React.FC = () => {
     name: '',
     email: '',
     whatsapp: '',
-  })
+  });
+  const [selectedItems, setSelectedItems] = useState<number[]>([]);
   
   const [initialMapPosition, setInitialMapPosition] = useState<[number, number]>([0, 0]);
   const [selectedMapPosition, setSelectedMapPosition] = useState<[number, number]>([0, 0]);
@@ -103,7 +104,18 @@ const CreatePoint: React.FC = () => {
     const { name, value } = event.target;
 
     setFormInputs({...formInputs, [name]: value })
-  }, [])
+  }, [formInputs])
+
+  const handleSelectItem = useCallback((itemId: number) => {
+    const isItemAlreadySelected = selectedItems.findIndex(item => item === itemId);
+    
+    if (isItemAlreadySelected >= 0) {
+      const filteredItems = selectedItems.filter(item => item !== itemId);
+      setSelectedItems(filteredItems);
+    } else {
+      setSelectedItems([...selectedItems, itemId]);
+    }
+  }, [selectedItems])
 
   return (
     <div id="page-create-point">
@@ -221,7 +233,11 @@ const CreatePoint: React.FC = () => {
           <ul className="items-grid">
             {
               items.map(item => (
-                <li key={item.id} className="selected">
+                <li 
+                  key={item.id}
+                  className={selectedItems.includes(item.id) ? 'selected' : ''}
+                  onClick={() => handleSelectItem(item.id)}  
+                >
                   <img src={item.image_url} alt={item.title} />
                   <span>{item.title}</span>
                 </li>
