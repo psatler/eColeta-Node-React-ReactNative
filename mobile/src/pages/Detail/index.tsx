@@ -1,18 +1,62 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Feather as Icon, FontAwesome } from '@expo/vector-icons'
-import { View, StyleSheet, TouchableOpacity, Image, Text, SafeAreaView } from 'react-native';
+import { ActivityIndicator, View, StyleSheet, TouchableOpacity, Image, Text, SafeAreaView } from 'react-native';
 import Constants from 'expo-constants'
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { RectButton } from 'react-native-gesture-handler'
+import api from '../../services/api';
 
 // import { Container } from './styles';
 
+interface Params {
+  point_id: number;
+}
+
+interface Data {
+  point: {
+    name: string;
+    image: string;
+    email: string;
+    whatsapp: string;
+    city: string;
+    uf: string;
+  };
+  items: {
+    title: string;
+  }[];
+}
+
 const Detail: React.FC = () => {
   const navigation = useNavigation()
+  const route = useRoute()
+  const routeParams = route.params as Params;
+
+  const [data, setData] = useState<Data | null>(null)
+
+  useEffect(() => {
+    api.get(`points/${routeParams.point_id}`)
+      .then(response => {
+        setData(response.data)
+      })
+  }, [])
 
   const handleNavigateBack = useCallback(() => {
     navigation.goBack()
   }, [navigation])
+
+  if(!data) {
+    return (
+      <View
+        style={{
+          flex: 1,
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <ActivityIndicator size="large" color="#999" />
+      </View>
+    );
+  }
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
@@ -24,16 +68,20 @@ const Detail: React.FC = () => {
         <Image
           style={styles.pointImage}
           source={{
-            uri: 'https://images.unsplash.com/photo-1543083477-4f785aeafaa9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60',
+            uri: data.point.image,
           }}
         />
 
-        <Text style={styles.pointName}>Mercadin Maroto</Text>
-        <Text style={styles.pointItems}>Lâmpadas, Óleo de cozinha</Text>
+        <Text style={styles.pointName}>{data.point.name}</Text>
+        <Text style={styles.pointItems}>
+          {data.items.map(item => item.title).join(', ')}
+        </Text>
 
         <View style={styles.address}>
           <Text style={styles.addressTitle}>Endereço</Text>
-          <Text style={styles.addressContent}>Vitória, ES</Text>
+          <Text style={styles.addressContent}>
+            {data.point.city}, {data.point.uf}
+          </Text>
         </View>
       </View>
 
