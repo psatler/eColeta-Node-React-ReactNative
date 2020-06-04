@@ -1,8 +1,20 @@
+import React from 'react';
+import { Constants } from 'expo'
+import { View, StyleSheet } from 'react-native';
+
+// import { Container } from './styles';
+
+const Points: React.FC = () => {
+  return <View />;
+}
+
+export default Points;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 32,
-    paddingTop: 20 + Constants.statusBarHeight,
+    // paddingTop: 20 + Constants.statusBarHeight,
   },
 
   title: {
