@@ -7,8 +7,15 @@
 
 ### How to run
 
+```
+yarn 
 
+yarn start
+```
 
+Then, with the Expo app opened, scan the QR code. You should be able to load the project and see it in you phone.
+
+PS: make sure the backend (found in the server folder of this repo) is up and running.
 
 ### Dependencies
 
