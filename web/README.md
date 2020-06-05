@@ -3,8 +3,6 @@
 # Frontend
 
 
-
-
 ### How to run
 
 ```
@@ -13,8 +11,6 @@ yarn
 yarn start
 
 ```
-
-
 
 ### Features
 
@@ -34,3 +30,18 @@ To get the cities and states, the API from [IBGE](https://servicodados.ibge.gov.
 - [Leaflet](https://leafletjs.com/)
 - [React Leaflet](https://react-leaflet.js.org/)
 - [React Dropzone](https://react-dropzone.js.org/) 
+
+
+### Screens
+
+- Home 
+
+<p align="center">
+    <img alt="eColeta" src="../.github/home-web.svg" width="500px" />
+</p>
+
+- Registration of places of collection
+
+<p align="center">
+    <img alt="eColeta-Registration" src="../.github/web-cadastro.svg" width="300px" />
+</p>

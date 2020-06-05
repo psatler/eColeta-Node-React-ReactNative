@@ -19,7 +19,7 @@ PS: make sure the backend (found in the server folder of this repo) is up and ru
 
 ### Dependencies
 
-- [Expo Google Fonts](https://github.com/expo/google-fonts). So, for this project, we run
+- [Expo Google Fonts](https://github.com/expo/google-fonts). So, for this project, we have `Ubuntu` and `Roboto` fonts, so, we run (this is for future reference only): 
 
 ```
 expo install expo-font @expo-google-fonts/ubuntu @expo-google-fonts/roboto
@@ -31,3 +31,13 @@ expo install expo-font @expo-google-fonts/ubuntu @expo-google-fonts/roboto
 - [Expo React Native SVG](https://docs.expo.io/versions/latest/sdk/svg/)
 - [Expo Location](https://docs.expo.io/versions/latest/sdk/location/)
 - [Expo Mail Composer](https://docs.expo.io/versions/latest/sdk/mail-composer/)
+
+
+### Screens
+
+<p style="display: flex; align-items: center; justify-content: space-around;">
+    <img alt="eColeta" src="../.github/mobile-1.png" width="150px" />
+    <img alt="eColeta" src="../.github/mobile-2.png" width="150px" />
+    <img alt="eColeta" src="../.github/mobile-3.png" width="150px" />
+    <img alt="eColeta" src="../.github/mobile-4.png" width="150px" />
+</p>
