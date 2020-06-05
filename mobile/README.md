@@ -23,3 +23,4 @@ expo install expo-font @expo-google-fonts/ubuntu @expo-google-fonts/roboto
 - [Expo Constants](https://docs.expo.io/versions/latest/sdk/constants/)
 - [Expo React Native SVG](https://docs.expo.io/versions/latest/sdk/svg/)
 - [Expo Location](https://docs.expo.io/versions/latest/sdk/location/)
+- [Expo Mail Composer](https://docs.expo.io/versions/latest/sdk/mail-composer/)
