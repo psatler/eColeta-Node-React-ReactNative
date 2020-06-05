@@ -15,14 +15,14 @@ yarn
 yarn dev
 ```
 
-2) Running the migrations
+2) Create a `.env` file and replace the `BASE_URL` with your machine's local IP. This is so we can serve files for the mobile project with React Native.
+
+3) Running the migrations
 
 ```
 yarn knex:migrate
 ```
 which will run the following command: `yarn knex --knexfile knexfile.ts migrate:latest`
-
-
 
 
 
@@ -58,8 +58,9 @@ themselves, and as these have a **N by N** relationship, we'll have a _pivot_ ta
 
 ### Dependencies
 
-- [Expressjs]()
-- [Dotenv]()
-- [Knexjs](http://knexjs.org/) query builder
+- [Expressjs](https://github.com/expressjs/express): Fast, unopinionated, minimalist web framework for node.
+- [Celebrate](https://github.com/arb/celebrate): A [joi](https://hapi.dev/module/joi/) validation middleware for Express. 
+- [Dotenv](https://github.com/motdotla/dotenv): Loads environment variables from .env for nodejs projects. 
+- [Knexjs](http://knexjs.org/): A query builder for PostgreSQL, MySQL and SQLite3, designed to be flexible, portable, and fun to use.
 - [Sqlite3](https://www.npmjs.com/package/sqlite3) as the database. If you're using VSCode, download an extension called [SQLite](https://marketplace.visualstudio.com/items?itemName=alexcvzz.vscode-sqlite). Then, just `ctrl + shift + p` and type `>sqlite open database`. The _SQLite Explorer_ will be at the bottom left of VSCode.
-- [Multer](https://github.com/expressjs/multer): Node.js middleware for handling `multipart/form-data`. 
+- [Multer](https://github.com/expressjs/multer): Node.js middleware for handling `multipart/form-data`.
