@@ -62,3 +62,4 @@ themselves, and as these have a **N by N** relationship, we'll have a _pivot_ ta
 - [Dotenv]()
 - [Knexjs](http://knexjs.org/) query builder
 - [Sqlite3](https://www.npmjs.com/package/sqlite3) as the database. If you're using VSCode, download an extension called [SQLite](https://marketplace.visualstudio.com/items?itemName=alexcvzz.vscode-sqlite). Then, just `ctrl + shift + p` and type `>sqlite open database`. The _SQLite Explorer_ will be at the bottom left of VSCode.
+- [Multer](https://github.com/expressjs/multer): Node.js middleware for handling `multipart/form-data`. 
