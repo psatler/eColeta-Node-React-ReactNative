@@ -26,7 +26,7 @@ const Home: React.FC = () => {
       uf,
       city,
     });
-  }, [navigation])
+  }, [navigation, uf, city])
 
   // function handleNavigateToPointsScreen() {
   //   navigation.navigate('Points');
