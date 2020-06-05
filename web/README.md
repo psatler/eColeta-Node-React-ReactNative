@@ -33,3 +33,4 @@ To get the cities and states, the API from [IBGE](https://servicodados.ibge.gov.
 - [React Router DOM]()
 - [Leaflet](https://leafletjs.com/)
 - [React Leaflet](https://react-leaflet.js.org/)
+- [React Dropzone](https://react-dropzone.js.org/) 
