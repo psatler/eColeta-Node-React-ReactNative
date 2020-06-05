@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import Constants from 'expo-constants'
 import { Feather as Icon } from '@expo/vector-icons'
 import { Text, View, StyleSheet, TouchableOpacity, ScrollView, Image, Alert } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import MapView, { Marker } from 'react-native-maps'
 import { SvgUri } from 'react-native-svg'; // allow us to load an external svg
 import * as Location from 'expo-location';
@@ -28,8 +28,15 @@ interface Point {
   // }[];
 }
 
+interface Params {
+  city: string;
+  uf: string;
+}
+
 const Points: React.FC = () => {
   const navigation = useNavigation()
+  const routes = useRoute()
+  const routeParams = routes.params as Params;
 
   const [items, setItems] = useState<Item[]>([])
   const [selectedItems, setSelectedItems] = useState<number[]>([])
@@ -60,7 +67,6 @@ const Points: React.FC = () => {
   useEffect(() => {
     // loading the items from the server API
     api.get('items').then(response => {
-      console.log(response.data)
       setItems(response.data)
     })
   }, [])
@@ -69,14 +75,16 @@ const Points: React.FC = () => {
     // loading the points of a given city/state
     api.get('points', {
       params: {
-        city: 'Vila Velha',
-        uf: 'ES',
-        items: [1, 2]
+        city: routeParams.city,
+        uf: routeParams.uf,
+        items: selectedItems
       }
     }).then(response => {
+      console.log(routeParams)
+      console.log(response.data)
       setPoints(response.data);
     })
-  }, [])
+  }, [selectedItems])
 
   const handleNavigateBack = useCallback(() => {
     navigation.goBack()
