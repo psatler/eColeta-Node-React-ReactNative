@@ -35,7 +35,7 @@ expo install expo-font @expo-google-fonts/ubuntu @expo-google-fonts/roboto
 
 ### Screens
 
-<p style="display: flex; align-items: center; justify-content: space-around;">
+<p align="center" style="display: flex; align-items: center; justify-content: space-around;">
     <img alt="eColeta" src="../.github/mobile-1.png" width="150px" />
     <img alt="eColeta" src="../.github/mobile-2.png" width="150px" />
     <img alt="eColeta" src="../.github/mobile-3.png" width="150px" />
