@@ -56,6 +56,15 @@ themselves, and as these have a **N by N** relationship, we'll have a _pivot_ ta
 - Listing of places/points (option to filter by state, city, items)
 - Listing an specific point/place of collection
 
+### Running with Insomnia (endpoints)
+
+You can load the endpoints to test with the Insomnia REST client by clicking on the button below:
+
+[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=eColeta%20Backend&uri=https%3A%2F%2Fgithub.com%2Fpsatler%2FeColeta-Node-React-ReactNative%2Fblob%2Fmaster%2Fserver%2Finsomnia-export%2FInsomnia_2020-06-07.json)
+
+
+Then, copy the URL and in the Insomnia app, look for the Import Data button, and choose From URL to load it to your app.
+
 ### Dependencies
 
 - [Expressjs](https://github.com/expressjs/express): Fast, unopinionated, minimalist web framework for node.
